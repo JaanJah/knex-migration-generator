@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
+    "migrate:up": "knex migrate:up 20210801120853_test.js",
+    "migrate:down": "knex migrate:down 20210801120853_test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
