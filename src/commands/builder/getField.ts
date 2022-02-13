@@ -53,5 +53,9 @@ export default (data: any) => {
         type += '.defaultTo(null)';
     }
 
+    if (data.Comment) {
+        type += `.comment('${data.Comment}')`;
+    }
+
     return type;
 }

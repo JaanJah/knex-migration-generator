@@ -20,8 +20,8 @@ const migrateUp = async (tables: string[]) => {
             continue;
         }
 
-        const [fields] = await database.raw(`DESCRIBE ${table}`);
-
+        const [fields] = await database.raw(`SHOW FULL COLUMNS FROM ${table}`);
+        console.log(fields);
         text += `   await knex.schema.createTable('${table}', (table) => {\n`;
         fields.forEach((field: any) => {
             text += generateField(field);
