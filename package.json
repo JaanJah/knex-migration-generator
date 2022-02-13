@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
+    "migrate": "knex migrate:down && knex migrate:up",
     "migrate:up": "knex migrate:up 20210801120853_test.ts",
     "migrate:down": "knex migrate:down",
     "test": "echo \"Error: no test specified\" && exit 1"
