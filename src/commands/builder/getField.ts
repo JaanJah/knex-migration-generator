@@ -1,6 +1,8 @@
+import Column from "../../interfaces/Column";
+
 const timestampRegex = new RegExp(/(CURRENT_TIMESTAMP)(\(?[0-9]?\))?/);
 
-export default (data: any) => {
+export default (data: Column) => {
     let type = '';
     switch (data.Type) {
         case 'int unsigned':

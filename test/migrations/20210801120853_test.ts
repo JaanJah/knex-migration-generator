@@ -24,17 +24,22 @@ export const up = async (knex: Knex) => {
         table.specificType('uuid_col', `char(36)`).nullable().defaultTo(null);
         table.json('jsonb_col').nullable().defaultTo(null);
         table.specificType('point_col', `point`).nullable().defaultTo(null);
-   });
-   await knex.schema.createTable('table_three', (table) => {
-        table.integer('id').unsigned().defaultTo(null);
+
+        table.primary(['id']);
    });
    await knex.schema.createTable('table_two', (table) => {
         table.integer('id').unsigned().defaultTo(null);
    });
+   await knex.schema.createTable('table_three', (table) => {
+        table.integer('id').unsigned().defaultTo(null);
+        table.integer('table_one_id').unsigned();
+
+        table.foreign('table_one_id').references('id').inTable('table_one');
+   });
 };
 
 export const down = async (knex: Knex) => {
-   await knex.schema.dropTable('table_one');
-   await knex.schema.dropTable('table_three');
-   await knex.schema.dropTable('table_two');
+   await knex.schema.dropTableIfExists('table_one');
+   await knex.schema.dropTableIfExists('table_three');
+   await knex.schema.dropTableIfExists('table_two');
 };
