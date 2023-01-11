@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/JaanJah/knex-migration-generator#readme",
   "dependencies": {
-    "knex": "^0.95.15",
+    "knex": "^2.4.0",
     "mysql": "^2.18.1",
     "typescript": "^4.5.5"
   },
